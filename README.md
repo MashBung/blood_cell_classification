@@ -17,7 +17,7 @@ from blood_cell_classifier import BloodCellClassifier
 classifier = BloodCellClassifier('best_model.pth')
 
 # 예측
-result = classifier.predict('cell_image.png')
+result = classifier.predict('./sample_image/platelet_2181.png')
 print(f"{result['class']}: {result['confidence']:.2f}%")
 ```
 
@@ -25,19 +25,19 @@ print(f"{result['class']}: {result['confidence']:.2f}%")
 
 ### 1. 단일 이미지 예측
 ```python
-result = classifier.predict('image.png')
+result = classifier.predict('./sample_image/platelet_2181.png')
 ```
 
 ### 2. 상위 K개 예측
 ```python
-top3 = classifier.predict_top_k('image.png', k=3)
+top3 = classifier.predict_top_k('./sample_image/platelet_2181.png', k=3)
 for res in top3:
     print(f"{res['class']}: {res['confidence']:.2f}%")
 ```
 
 ### 3. 일괄 예측
 ```python
-results = classifier.predict_batch(['img1.png', 'img2.png'])
+results = classifier.predict_batch(['./sample_image/platelet_2181.png', 'basophil_1182.png'])
 ```
 
 ## 지원 클래스
