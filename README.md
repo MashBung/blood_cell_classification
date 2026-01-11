@@ -1,12 +1,8 @@
 # 기본 예측
-python cli.py platelet_2181.png
+python cli.py ./sample_image/platelet_2181.png
 
 # 상위 3개 예측
-python cli.py platelet_2181.png --top-k 3
-
-# 다른 모델 사용
-python cli.py image.png --model my_model.pth
-
+python cli.py ./sample_image/platelet_2181.png --top-k 3
 
 # 혈액 세포 분류기 (Blood Cell Classifier)
 
@@ -15,13 +11,13 @@ python cli.py image.png --model my_model.pth
 
 ## 빠른 시작
 ```python
-from blood_cell_model import BloodCellClassifier
+from blood_cell_classifier import BloodCellClassifier
 
 # 모델 로드
 classifier = BloodCellClassifier('best_model.pth')
 
 # 예측
-result = classifier.predict('cell_image.png')
+result = classifier.predict('./sample_image/platelet_2181.png')
 print(f"{result['class']}: {result['confidence']:.2f}%")
 ```
 
@@ -29,17 +25,24 @@ print(f"{result['class']}: {result['confidence']:.2f}%")
 
 ### 1. 단일 이미지 예측
 ```python
-result = classifier.predict('image.png')
+result = classifier.predict('./sample_image/platelet_2181.png')
 ```
 
 ### 2. 상위 K개 예측
 ```python
-top3 = classifier.predict_top_k('image.png', k=3)
+top3 = classifier.predict_top_k('./sample_image/platelet_2181.png', k=3)
+for res in top3:
+    print(f"{res['class']}: {res['confidence']:.2f}%")
 ```
 
-### 3. 일괄 예측
+### 3. 모든 확률 보기
 ```python
-results = classifier.predict_batch(['img1.png', 'img2.png'])
+print("\n=== 방법 2: 모든 확률 보기 ===")
+result = classifier.predict("./sample_image/platelet_2181.png", return_all_probs=True)
+print(f"예측: {result['class']} ({result['confidence']:.2f}%)")
+print("\n모든 클래스 확률:")
+for cls, prob in result["probabilities"].items():
+    print(f"  {cls}: {prob:.2f}%")
 ```
 
 ## 지원 클래스
