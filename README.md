@@ -1,12 +1,8 @@
 # 기본 예측
-python cli.py platelet_2181.png
+python cli.py ./sample_image/platelet_2181.png
 
 # 상위 3개 예측
-python cli.py platelet_2181.png --top-k 3
-
-# 다른 모델 사용
-python cli.py image.png --model my_model.pth
-
+python cli.py ./sample_image/platelet_2181.png --top-k 3
 
 # 혈액 세포 분류기 (Blood Cell Classifier)
 
@@ -15,7 +11,7 @@ python cli.py image.png --model my_model.pth
 
 ## 빠른 시작
 ```python
-from blood_cell_model import BloodCellClassifier
+from blood_cell_classifier import BloodCellClassifier
 
 # 모델 로드
 classifier = BloodCellClassifier('best_model.pth')
