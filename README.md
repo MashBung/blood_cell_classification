@@ -60,3 +60,7 @@ for cls, prob in result["probabilities"].items():
 
 - 정확도: ~92%
 - 추론 속도: ~50ms/image (GPU)
+  
+- 검증: 98.5%
+- <img width="650" height="730" alt="image" src="https://github.com/user-attachments/assets/b891dae6-930c-4243-9f42-056cac24b6ae" />
+
