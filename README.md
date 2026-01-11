@@ -35,6 +35,16 @@ for res in top3:
     print(f"{res['class']}: {res['confidence']:.2f}%")
 ```
 
+### 3. 모든 확률 보기
+```python
+print("\n=== 방법 2: 모든 확률 보기 ===")
+result = classifier.predict("./sample_image/platelet_2181.png", return_all_probs=True)
+print(f"예측: {result['class']} ({result['confidence']:.2f}%)")
+print("\n모든 클래스 확률:")
+for cls, prob in result["probabilities"].items():
+    print(f"  {cls}: {prob:.2f}%")
+```
+
 ## 지원 클래스
 
 - Basophil (호염기구)
