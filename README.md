@@ -1,3 +1,8 @@
+# 종속성 설치(가상환경에 설치 권장)
+```
+pip install -e .
+```
+
 # 기본 예측
 python cli.py ./sample_image/platelet_2181.png
 
