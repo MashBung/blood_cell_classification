@@ -35,11 +35,6 @@ for res in top3:
     print(f"{res['class']}: {res['confidence']:.2f}%")
 ```
 
-### 3. 일괄 예측
-```python
-results = classifier.predict_batch(['./sample_image/platelet_2181.png', 'basophil_1182.png'])
-```
-
 ## 지원 클래스
 
 - Basophil (호염기구)
