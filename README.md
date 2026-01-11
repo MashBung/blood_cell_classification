@@ -1,0 +1,59 @@
+# 기본 예측
+python cli.py platelet_2181.png
+
+# 상위 3개 예측
+python cli.py platelet_2181.png --top-k 3
+
+# 다른 모델 사용
+python cli.py image.png --model my_model.pth
+
+
+# 혈액 세포 분류기 (Blood Cell Classifier)
+
+딥러닝 기반 혈액 세포 이미지 자동 분류 모델
+
+
+## 빠른 시작
+```python
+from blood_cell_model import BloodCellClassifier
+
+# 모델 로드
+classifier = BloodCellClassifier('best_model.pth')
+
+# 예측
+result = classifier.predict('cell_image.png')
+print(f"{result['class']}: {result['confidence']:.2f}%")
+```
+
+## 주요 기능
+
+### 1. 단일 이미지 예측
+```python
+result = classifier.predict('image.png')
+```
+
+### 2. 상위 K개 예측
+```python
+top3 = classifier.predict_top_k('image.png', k=3)
+```
+
+### 3. 일괄 예측
+```python
+results = classifier.predict_batch(['img1.png', 'img2.png'])
+```
+
+## 지원 클래스
+
+- Basophil (호염기구)
+- Eosinophil (호산구)
+- Erythroblast (적아구)
+- Ig (미성숙 과립구)
+- Lymphocyte (림프구)
+- Monocyte (단핵구)
+- Neutrophil (호중구)
+- Platelet (혈소판)
+
+## 성능
+
+- 정확도: ~92%
+- 추론 속도: ~50ms/image (GPU)
