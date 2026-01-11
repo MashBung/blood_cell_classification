@@ -31,6 +31,8 @@ result = classifier.predict('image.png')
 ### 2. 상위 K개 예측
 ```python
 top3 = classifier.predict_top_k('image.png', k=3)
+for res in top3:
+    print(f"{res['class']}: {res['confidence']:.2f}%")
 ```
 
 ### 3. 일괄 예측
