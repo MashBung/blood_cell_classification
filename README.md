@@ -63,7 +63,7 @@ for cls, prob in result["probabilities"].items():
 
 ## 성능
 
-- 정확도: ~92%
+- 전체 샘플 정확도: 99.07%
 - 추론 속도: ~50ms/image (GPU)
 
 - 검증: 98.5%
